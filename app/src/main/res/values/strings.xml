@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MyRestaurant</string>
+    <!--    <string name="format_opening_state">(%s)</string>-->
+    <!--    <string name="format_sort_value">(sort value): %s</string>-->
+    <!--    <string name="format_item_not_found">"Restaurant not found for Text: %s"</string>-->
+
+    <!-- Default String value -->
+    <string name="default_text_restaurant_name">Restaurant Name</string>
+    <string name="default_text_open">Open</string>
+    <string name="day">Day</string>
+    <string name="time">Time</string>
+</resources>
