@@ -3,6 +3,7 @@ package com.firstapp.myrestaurant
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.list_item_restaurant.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var restaurantListAdapter: RestaurantListAdapter
-    val viewModel: MainActivityViewModel by viewModels()
+    private val viewModel: MainActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +29,21 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun onListItemClick(position: Int) {
+        Toast.makeText(this, position.toString(), Toast.LENGTH_SHORT).show()
+        val operatingHours =  restaurantListAdapter.getItem(position)?.operatingHours
+        val resName =  restaurantListAdapter.getItem(position)?.name
+        Log.d("op hours", operatingHours.toString())
+        val intent = Intent(this, DetailedActivity::class.java)
+        intent.putExtra("operatingHours", operatingHours.toString())
+        intent.putExtra("resName", resName)
+        startActivity(intent)
+    }
+
+
     private fun initRecyclerView() {
         recycler_view_restaurants.layoutManager = LinearLayoutManager(this)
-        restaurantListAdapter = RestaurantListAdapter()
+        restaurantListAdapter = RestaurantListAdapter{position -> onListItemClick(position)}
         recycler_view_restaurants.adapter =restaurantListAdapter
 
 
