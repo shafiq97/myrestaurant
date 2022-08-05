@@ -11,8 +11,10 @@
         <entry key="..\:/Users/ainaa/AndroidStudioProjects/MyRestaurant/app/src/main/res/layout/activity_restaurant_openings.xml" value="0.1" />
         <entry key="..\:/Users/ainaa/AndroidStudioProjects/MyRestaurant/app/src/main/res/layout/list_item_restaurant.xml" value="0.1" />
         <entry key="..\:/Users/ainaa/AndroidStudioProjects/MyRestaurant/app/src/main/res/layout/list_operating_hours.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_list_restaurants.xml" value="0.15070921985815602" />
-        <entry key="app/src/main/res/layout/activity_restaurant_openings.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_list_restaurants.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_restaurant_openings.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/list_item_restaurant.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/list_operating_hours.xml" value="0.5" />
       </map>
     </option>
   </component>

@@ -3,13 +3,14 @@ package com.firstapp.myrestaurant.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.firstapp.myrestaurant.R
 import com.firstapp.myrestaurant.model.RestaurantDetail
 import kotlinx.android.synthetic.main.activity_restaurant_openings.view.*
 import kotlinx.android.synthetic.main.list_operating_hours.view.*
 
-class RestaurantDetailAdapter : RecyclerView.Adapter<RestaurantDetailAdapter.MyViewHolder>()  {
+class RestaurantDetailAdapter(private val mList: List<String>) : RecyclerView.Adapter<RestaurantDetailAdapter.MyViewHolder>()  {
 
     private var listData: List<RestaurantDetail>? = null
 
@@ -23,22 +24,23 @@ class RestaurantDetailAdapter : RecyclerView.Adapter<RestaurantDetailAdapter.MyV
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(listData?.get(position)!!)
+        val ItemsViewModel = mList[position]
+        holder.textView.text = ItemsViewModel
+//        holder.bind(mList[position]!!)
     }
 
     override fun getItemCount(): Int {
-        if(listData ==null)return 0
-        return listData?.size!!
+        return mList.size
     }
 
     class MyViewHolder(view: View): RecyclerView.ViewHolder(view) {
+        val textView: TextView = itemView.findViewById(R.id.day)
         val restaurantName = view.restaurant_name1
-        val day = view.day
-
-        fun bind(data: RestaurantDetail) {
-            restaurantName.text = data.name
-            day.text = data.operatingHours
-
-        }
+//        val day = view.day
+//        fun bind(data: String) {
+//            restaurantName.text = "haha"
+//            day.text = "huhu"
+//        }
     }
+
 }

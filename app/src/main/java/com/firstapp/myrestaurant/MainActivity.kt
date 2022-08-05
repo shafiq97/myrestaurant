@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.lifecycle.Observer
 import com.firstapp.myrestaurant.adapter.RestaurantListAdapter
 import com.firstapp.myrestaurant.viewmodel.MainActivityViewModel
+import com.firstapp.myrestaurant.DetailedActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_list_restaurants.*
 import kotlinx.android.synthetic.main.list_item_restaurant.*
