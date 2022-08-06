@@ -98,6 +98,8 @@ class DetailedActivity : AppCompatActivity() {
                 }
             }
 
+
+
 // ############################################################
             var secondSplitted = listOf<String>()
             var secondSplittedArray : MutableList<String> = mutableListOf()
@@ -169,10 +171,54 @@ class DetailedActivity : AppCompatActivity() {
                 }
             }
 
+            if(first.contains("Sun") && lastDay!="Sun"){
+                data.add("Sun $time")
+            }
+
         }
         else{
-            first = "no /"
-            second= "no /"
+
+            firstSplitted = res.split(" ").toMutableList()
+            weekDay = firstSplitted[0].split("-")
+            lastDay = weekDay[1]
+            Log.d("WEEKDAY", lastDay.toString())
+
+            //            find time
+            val regex = "-?[0-9]+(\\:[0-9]+)?".toRegex()
+            for (elem in firstSplitted){
+                Log.d("elem", elem.toString())
+                if (elem.trim().equals("am", true)
+                    || elem.trim().equals("pm", true)
+                    || elem.matches(regex)){
+                    firstSplittedArray.add(elem)
+                }
+            }
+            for(elem in firstSplittedArray){
+                if(elem == "am"){
+                    time += "$elem-"
+                }
+                else if(elem == "pm"){
+                    time += "$elem"
+                }
+                else if(elem.matches(regex)){
+                    time += "$elem"
+                }
+                else{
+                    "$elem"
+                }
+            }
+
+            for (day in days){
+                data.add("$day $time")
+                if (day == lastDay){
+                    break
+                }
+            }
+
+            if(firstSplitted.contains("Sun") && lastDay!="Sun"){
+                data.add("Sun $time")
+            }
+
         }
 
 
